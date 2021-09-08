@@ -6,6 +6,7 @@ tasks:
   - init: yarn
     command: |
       export HMR_HOST=`gp url 24678`
+      yarn setup
       yarn dev
 
 ports:
