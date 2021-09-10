@@ -1,11 +1,29 @@
 import hyper from '$lib/utils.js'
+import postSchema from '$lib/post-schema.js'
+
+
+
 
 export async function post({ body }) {
-  // validate document
-  const response = await hyper.data.add(body)
-  if (response.ok) {
+  try {
+    const post = postSchema.parse(body) // validate document
+    const response = await hyper.data.add(post)
+    
+    if (response.ok) {
+      return {
+        body: await response.json()
+      }
+    } else {
+      return {
+        status: 500,
+        body: { ok: false, message: 'could not write to hyper' }
+      }
+    }
+  } catch (e) {
+    console.log(e.message)
     return {
-      body: await response.json()
+      status: 400,
+      body: { error: 'Bad Request!', issues: e.issues }
     }
   }
 }

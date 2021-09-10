@@ -10,10 +10,12 @@
   "devDependencies": {
     "@sveltejs/kit": "next",
     "env-cmd": "^10.1.0",
-    "svelte": "^3.34.0"
+    "svelte": "^3.34.0",
+    "uvu": "^0.5.1"
   },
   "type": "module",
   "dependencies": {
-    "node-fetch": "^3.0.0"
+    "node-fetch": "^3.0.0",
+    "zod": "^3.8.2"
   }
 }
