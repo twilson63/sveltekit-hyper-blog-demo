@@ -1,4 +1,4 @@
-const URL = 'http://localhost:6363/data/blog' // add env
+const URL = `${process.env['HYPER']}/data/blog` // add env
 const headers = {
   'Content-Type': 'application/json'
 }
