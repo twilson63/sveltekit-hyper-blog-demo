@@ -8,5 +8,5 @@ export default z.object({
   date: z.string(),
   tags: z.array(z.string()),
   status: z.enum(['published', 'draft']),
-  content: z.string()
+  content: z.string().max(5000)
 })
